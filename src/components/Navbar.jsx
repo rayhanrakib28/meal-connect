@@ -88,7 +88,7 @@ const Navbar = () => {
             <div className="navbar bg-base-100">
                 <div className="navbar-start">
 
-                    <div className="drawer z-10">
+                    <div className="drawer z-20">
                         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
                         <div className="drawer-content flex flex-col">
                             <div className="w-full navbar">

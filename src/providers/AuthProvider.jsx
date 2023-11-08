@@ -15,7 +15,7 @@ const AuthProvider = ({ children }) => {
     const continueWithGoogle = () => {
         return signInWithPopup(auth, googleProvider);
     }
-    const register = (email,password) => {
+    const signup = (email,password) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth,email,password)
     }
@@ -48,7 +48,7 @@ const AuthProvider = ({ children }) => {
     const AuthInfo = {
         user,
         loading,
-        register,
+        signup,
         userUpdateProfile,
         continueWithGoogle,
         login,

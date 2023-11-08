@@ -3,18 +3,20 @@ import { Helmet } from 'react-helmet';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
 import toast from 'react-hot-toast';
+import { useForm } from 'react-hook-form';
 
 const Register = () => {
-    const { register, continueWithGoogle, userUpdateProfile } = useAuth();
+    const { signup, continueWithGoogle, userUpdateProfile } = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
+    const { register } = useForm();
 
     const handleGoogle = e => {
         e.preventDefault();
         continueWithGoogle()
             .then((res) => {
                 navigate(location?.state ? location.state : '/available-foods')
-        })
+            })
     }
     const handleRegister = e => {
         e.preventDefault();
@@ -23,14 +25,17 @@ const Register = () => {
         const name = form.name.value;
         const photo = form.photo.value;
         const password = form.password.value;
-        register(email, password)
+        signup(email, password)
             .then(res => {
                 userUpdateProfile(name, photo)
                     .then(() => {
                         toast.success("Successfully Registered")
                         navigate(location?.state ? location.state : '/available-foods')
-                })
-        })
+                    })
+            })
+            .catch((err) => {
+                toast.error("Invalid Email/Password")
+            })
     }
 
     return (
@@ -45,10 +50,10 @@ const Register = () => {
                             Together, We Can Do <br className='' /> <span class="text-[#FF6C22]">More</span>
                         </h1>
                         <p class="mt-3 text-sm lg:text-base text-slate-400">
-                         Join us in our mission to make a positive impact on our environment and the lives of our neighbors.
+                            Join us in our mission to make a positive impact on our environment and the lives of our neighbors.
                         </p>
                         <p class="mt-3 text-sm text-[#50577A]">
-                           Already have an account? <span className='font-semibold hover:text-[#FF6C22]'><NavLink to="/login">Sign In Now</NavLink></span>
+                            Already have an account? <span className='font-semibold hover:text-[#FF6C22]'><NavLink to="/login">Sign In Now</NavLink></span>
                         </p>
 
 
@@ -69,21 +74,21 @@ const Register = () => {
 
                         <form onSubmit={handleRegister}>
                             <div class="mb-4">
-                                <input type="text" class="py-3 px-4 block w-full border outline-none rounded-md text-sm focus:ring-[#FF6C22] sm:p-4" placeholder="Full Name" name='name'/>
+                                <input {...register("name", { required: true })} type="text" class="py-3 px-4 block w-full border outline-none rounded-md text-sm focus:ring-[#FF6C22] sm:p-4" placeholder="Full Name" name='name' />
                             </div>
                             <div class="mb-4">
-                                <input type="url" class="py-3 px-4 block w-full border outline-none rounded-md text-sm focus:ring-[#FF6C22] sm:p-4" placeholder="Photo URL" name='photo' />
+                                <input {...register("photo")} type="url" class="py-3 px-4 block w-full border outline-none rounded-md text-sm focus:ring-[#FF6C22] sm:p-4" placeholder="Photo URL" name='photo' />
                             </div>
                             <div class="mb-4">
-                                <input type="email" class="py-3 px-4 block w-full border outline-none rounded-md text-sm focus:ring-[#FF6C22] sm:p-4" placeholder="Email address" name='email' />
+                                <input {...register("email", { required: true })} type="email" class="py-3 px-4 block w-full border outline-none rounded-md text-sm focus:ring-[#FF6C22] sm:p-4" placeholder="Email address" name='email' />
                             </div>
 
                             <div class="mb-4">
-                                <input type="password" class="py-3 px-4 block w-full border outline-none rounded-md text-sm focus:ring-[#FF6C22] sm:p-4" placeholder="Password" name='password' />
+                                <input {...register("password", { required: true, minLength: 4 })} type="password" class="py-3 px-4 block w-full border outline-none rounded-md text-sm focus:ring-[#FF6C22] sm:p-4" placeholder="Password" name='password' />
                             </div>
 
                             <div class="grid">
-                                <button type="submit" class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-[#FF6C22] text-white hover:bg-[#FF6C22] focus:outline-none focus:ring-2 focus:ring-[#FF6C22] focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800 sm:p-4">Sign Up</button>
+                                <button type="submit" class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-[#FF6C22] text-white hover:bg-[#FF6C22] focus:outline-none focus:ring-2 focus:ring-[#FF6C22] focus:ring-offset-2 transition-all text-smsm:p-4">Sign Up</button>
                             </div>
                         </form>
 
