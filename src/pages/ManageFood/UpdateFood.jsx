@@ -1,14 +1,30 @@
 import React from 'react';
+import useAuth from '../../hooks/useAuth';
+import { useState } from 'react';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import useAuth from '../hooks/useAuth';
 import Swal from 'sweetalert2';
 
-const AddFood = () => {
+const UpdateFood = () => {
     const { user } = useAuth();
-    const DonorName = user?.displayName;
-    const DonorEmail = user?.email;
-    const DonorImage = user?.photoURL;
-    const handleAdd = e => {
+    const { email, displayName } = user || {};
+    const [data, setData] = useState([]);
+    const axiosSecure = useAxiosSecure();
+    useEffect(() => {
+        axiosSecure.get('/api/v1/all/services')
+            .then(res => {
+                setData(res.data)
+            })
+    }, [])
+    const location = useLocation();
+    const pathname = location.pathname;
+    const id = pathname.slice(pathname.lastIndexOf('/') + 1);
+    const food = data.find(item => item._id == id);
+    const { _id, DonorName, DonorEmail, Location, FoodImage, FoodName, FoodQuantity, ExpiredDate, Status, DonorImage, Description, Details } = food || {};
+    
+    const handleUpdate = e => {
         e.preventDefault();
         const form = e.target;
         const FoodName = form.FoodName.value;
@@ -19,37 +35,36 @@ const AddFood = () => {
         const Status = 1;
         const Description = form.Description.value;
         const Details = form.Details.value;
-        const Food = { FoodName, FoodImage, Location, FoodQuantity, ExpiredDate, Status, Description, Details, DonorEmail, DonorName, DonorImage };
-        fetch('https://meal-connect-server.vercel.app/api/v1/all/services', {
-            method: "POST",
+        const updatedFood = { FoodName, FoodImage, Location, FoodQuantity, ExpiredDate, Status, Description, Details, DonorEmail, DonorName, DonorImage };
+        
+        fetch(`http://localhost:5000/api/v1/services/${_id}`, {
+            method: "PUT",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(Food)
+            body: JSON.stringify(updatedFood)
         })
             .then((res) => res.json())
             .then((data) => {
-                if (data.insertedId) {
-                    Swal.fire({
-                        position: 'center',
-                        icon: 'success',
-                        title: 'Your Food has been added',
-                        showConfirmButton: false,
-                        timer: 1000
-                    })
-                    form.reset()
+                if (data.modifiedCount > 0) {
+                    Swal.fire(
+                        'Updated!',
+                        'Your product has been updated.',
+                        'success'
+                    )
+                    window.location.reload();
                 }
-            })
 
+            })
     }
 
     return (
         <div>
-            <Helmet><title>MealConnect | Add Food</title></Helmet>
+            <Helmet><title>{`MealConnect | Update ${FoodName}`}</title></Helmet>
             <div>
                 <div class="relative">
                     <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto ">
-                        <form onSubmit={handleAdd}>
+                        <form onSubmit={handleUpdate}>
                             <div class="p-4 sm:p-7 flex flex-col bg-white rounded-2xl shadow-2xl ">
                                 <div class="text-center">
                                     <h1 class="block text-xl font-bold text-[#2e355a]  ">Donate Food, Share Hope</h1>
@@ -61,15 +76,15 @@ const AddFood = () => {
                                 <div class="mt-5 grid gap-5">
                                     <div class="grid grid-cols-2 gap-4">
                                         <div class="relative">
-                                            <input required name='FoodName' type="text" class=" p-4 block w-full border rounded-lg text-sm outline-none" placeholder="Food Name" />
+                                            <input required name='FoodName' type="text" class=" p-4 block w-full border rounded-lg text-sm outline-none" defaultValue={FoodName} placeholder="Food Name" />
                                         </div>
                                         <div class="relative">
-                                            <input required name='FoodImage' type="url" class=" p-4 block w-full border rounded-lg text-sm outline-none" placeholder="Food Photo Url" />
+                                            <input required name='FoodImage' type="url" class=" p-4 block w-full border rounded-lg text-sm outline-none" defaultValue={FoodImage} placeholder="Food Photo Url" />
                                         </div>
                                     </div>
                                     <div className='grid grid-cols-2 md:grid-cols-3 gap-4'>
                                         <div class="relative">
-                                            <input required type="text" name='Location' class="peer p-4 block w-full border outline-none rounded-lg text-sm placeholder:text-transparent 
+                                            <input defaultValue={Location} required type="text" name='Location' class="peer p-4 block w-full border outline-none rounded-lg text-sm placeholder:text-transparent 
                       focus:pt-6
                       focus:pb-2
                       [&:not(:placeholder-shown)]:pt-6
@@ -83,7 +98,7 @@ const AddFood = () => {
                         peer-[:not(:placeholder-shown)]:-translate-y-1.5">Pickup Location</label>
                                         </div>
                                         <div class="relative">
-                                            <input required type="date" name='ExpiredDate' class="peer p-4 block w-full border outline-none rounded-lg text-sm placeholder:text-transparent 
+                                            <input defaultValue={ExpiredDate} required type="date" name='ExpiredDate' class="peer p-4 block w-full border outline-none rounded-lg text-sm placeholder:text-transparent 
                       focus:pt-6
                       focus:pb-2
                       [&:not(:placeholder-shown)]:pt-6
@@ -98,7 +113,7 @@ const AddFood = () => {
                                         </div>
                                         <div class="relative col-span-full md:col-span-1">
                                             <div class="relative">
-                                                <input required type="number" name='FoodQuantity' class="peer p-4 block w-full border outline-none rounded-lg text-sm placeholder:text-transparent 
+                                                <input defaultValue={FoodQuantity} required type="number" name='FoodQuantity' class="peer p-4 block w-full border outline-none rounded-lg text-sm placeholder:text-transparent 
                       focus:pt-6
                       focus:pb-2
                       [&:not(:placeholder-shown)]:pt-6
@@ -114,13 +129,13 @@ const AddFood = () => {
                                         </div>
                                     </div>
                                     <div class="col-span-full">
-                                        <input type="text" name='Description' class=" p-4 block w-full border rounded-lg text-sm outline-none" placeholder="Short Description" required />
+                                        <input defaultValue={Description} type="text" name='Description' class=" p-4 block w-full border rounded-lg text-sm outline-none" placeholder="Short Description" required />
                                     </div>
                                     <div class="col-span-full">
-                                        <input type="text" name='Details' class="h-24 p-4 block w-full border rounded-lg text-sm outline-none" placeholder="Food Details" required />
+                                        <input defaultValue={Details} type="text" name='Details' class="h-24 p-4 block w-full border rounded-lg text-sm outline-none" placeholder="Food Details" required />
                                     </div>
                                     <div class="mt-5">
-                                        <button type="submit" class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-[#FF6C22] text-white hover:bg-[#FF6C22] disabled:opacity-50 disabled:pointer-events-none ">Add Your Food</button>
+                                        <button type="submit" class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-[#FF6C22] text-white hover:bg-[#FF6C22] disabled:opacity-50 disabled:pointer-events-none ">Update Your Food</button>
                                     </div>
                                 </div>
                             </div>
@@ -147,4 +162,4 @@ const AddFood = () => {
     );
 };
 
-export default AddFood;
+export default UpdateFood;

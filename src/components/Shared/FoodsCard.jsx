@@ -9,7 +9,7 @@ const FoodsCard = ({ food }) => {
     
 
     return (
-        <div className='w-80 lg:w-96 bg-white shadow-md rounded-lg'>
+        <div className='w-80 lg:w-96 bg-white shadow-md rounded-lg flex flex-col justify-between'>
             <div className="relative">
                 <img className='rounded-t-lg w-full h-60 object-cover transition duration-500 group-hover:scale-105' src={FoodImage} alt="" />
                 {

@@ -106,7 +106,8 @@ const FoodDetails = () => {
                                     <p>{DonorEmail}</p>
                                 </div>
                             </div>
-                            <button className="btn text-center w-40 h-16 mt-6 bg-[#FF6C22] text-white hover:text-[#2e355a] " onClick={() => document.getElementById('request_modal').showModal()}>open modal</button>
+                            {Status && <button className="btn text-center w-40 h-16 mt-6 bg-[#FF6C22] text-white hover:text-[#2e355a] " onClick={() => document.getElementById('request_modal').showModal()}>open modal</button>}
+                            
                             <dialog id="request_modal" className="modal modal-bottom sm:modal-middle">
                                 <div className="modal-box">
                                     <div className='flex gap-5 mb-4'>
@@ -131,8 +132,8 @@ const FoodDetails = () => {
                                             <p className=" text-sm">Expired Date: {ExpiredDate}</p>
                                             <input name='notes' className='border my-2 p-2 rounded outline-none mr-2' type="text" placeholder='Additional Notes'/>
                                             <input name='donate' className='border my-2 p-2 rounded outline-none' type="number" placeholder='Donate Money'/>
-                                            
                                             <input className='btn bg-[#FF6C22] text-white hover:text-[#2e355a]' type="submit" value="Request" />
+                                            
                                         </form>
                                     </div>
                                 </div>

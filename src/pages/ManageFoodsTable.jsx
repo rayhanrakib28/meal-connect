@@ -64,12 +64,12 @@ const columns = [
         header: <p style={{ textAlign: 'center' }}>Actions</p>,
         cell: ({ row }) => (
             <Stack justifyContent={'center'} direction={'row'} spacing={1}>
-                <IconButton component={Link} to={`${row.original._id}/manage`}>
+                <IconButton component={Link} to={`${row.original._id}`}>
                     <ManageSearchIcon />
                 </IconButton>
                 <IconButton
                     component={Link}
-                    to={`${row.original._id}/update`}
+                    to={`update/${row.original._id}`}
                     color="success"
                 >
                     <EditIcon />
