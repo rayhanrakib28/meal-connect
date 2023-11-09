@@ -69,7 +69,7 @@ const Join = () => {
             </div>
             <div className='mt-10 text-center'>
                 <h1 className='font-bold text-[#2e355a] text-2xl lg:text-4xl'>Meet Our Volunteers</h1>
-                <p className='font-light text-[#50577A] my-4'>directly contribute to reducing food waste and ensuring that nutritious meals reach those who need them most.</p>
+                <p className='font-light text-[#50577A] my-4'>Directly contribute to reducing food waste and ensuring that nutritious meals reach those who need them most.</p>
                 {
                     isLoading ? (<div className='w-full flex justify-center items-center justify-items-center'><img className='w-80' src="https://i.ibb.co/80Bnt31/loading.gif" alt="" /></div>)
                         :
