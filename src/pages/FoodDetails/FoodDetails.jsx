@@ -132,6 +132,7 @@ const FoodDetails = () => {
                                             <input name='donate' className='border my-2 p-2 rounded outline-none' type="number" placeholder='Donate Money'/>
                                             <input className='btn bg-[#FF6C22] text-white hover:text-[#2e355a]' type="submit" value="Request" />
                                         </form>
+                                        <button className="btn">close</button>
                                     </div>
                                 </div>
                             </dialog>
