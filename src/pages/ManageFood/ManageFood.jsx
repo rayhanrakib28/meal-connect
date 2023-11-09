@@ -46,6 +46,9 @@ const ManageFood = () => {
                                         Requester Email
                                     </th>
                                     <th scope="col" class="px-3 py-2 ">
+                                        Requester Email
+                                    </th>
+                                    <th scope="col" class="px-3 py-2 ">
                                         Request Date
                                     </th>
                                     <th scope="col" class="px-3 py-2">

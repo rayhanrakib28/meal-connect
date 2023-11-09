@@ -38,7 +38,7 @@ const handleDelete = id => {
                             'Your Food has been deleted.',
                             'success'
                         )
-                        window.location.href = '/manage-foods';
+                        window.location.reload()
                     }
                 })
         }
@@ -102,10 +102,6 @@ const ManageFoodsTable = ({ manageFoods }) => {
     // console.log(data);
     return (
         <>
-            <h1 className='text-center text-2xl md:text-4xl font-bold mb-10'>Manage Foods</h1>
-            <Button component={Link} to="/addfood" sx={{ mb: 2 }}>
-                Add Food
-            </Button>
             <Sheet sx={{ borderRadius: 10 }}>
                 <Table size="lg">
                     <thead>
