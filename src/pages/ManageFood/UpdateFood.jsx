@@ -17,13 +17,13 @@ const UpdateFood = () => {
             .then(res => {
                 setData(res.data)
             })
-    }, [])
+    }, [axiosSecure])
     const location = useLocation();
     const pathname = location.pathname;
     const id = pathname.slice(pathname.lastIndexOf('/') + 1);
     const food = data.find(item => item._id == id);
-    const { _id, DonorName, DonorEmail, Location, FoodImage, FoodName, FoodQuantity, ExpiredDate, Status, DonorImage, Description, Details } = food || {};
-    
+    const { _id, DonorName, DonorEmail, Location, FoodImage, FoodName, FoodQuantity, ExpiredDay, Status, DonorImage, Description, Details } = food || {};
+
     const handleUpdate = e => {
         e.preventDefault();
         const form = e.target;
@@ -31,13 +31,13 @@ const UpdateFood = () => {
         const FoodImage = form.FoodImage.value;
         const Location = form.Location.value;
         const FoodQuantity = parseInt(form.FoodQuantity.value);
-        const ExpiredDate = form.ExpiredDate.value;
+        const ExpiredDay = form.ExpiredDay.value;
         const Status = 1;
         const Description = form.Description.value;
         const Details = form.Details.value;
-        const updatedFood = { FoodName, FoodImage, Location, FoodQuantity, ExpiredDate, Status, Description, Details, DonorEmail, DonorName, DonorImage };
-        
-        fetch(`http://localhost:5000/api/v1/services/${_id}`, {
+        const updatedFood = { FoodName, FoodImage, Location, FoodQuantity, ExpiredDay, Status, Description, Details, DonorEmail, DonorName, DonorImage };
+
+        fetch(`https://meal-connect-server.vercel.app/api/v1/services/${_id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -98,7 +98,7 @@ const UpdateFood = () => {
                         peer-[:not(:placeholder-shown)]:-translate-y-1.5">Pickup Location</label>
                                         </div>
                                         <div class="relative">
-                                            <input defaultValue={ExpiredDate} required type="date" name='ExpiredDate' class="peer p-4 block w-full border outline-none rounded-lg text-sm placeholder:text-transparent 
+                                            <input defaultValue={ExpiredDay} required type="number" name='ExpiredDay' class="peer p-4 block w-full border outline-none rounded-lg text-sm placeholder:text-transparent 
                       focus:pt-6
                       focus:pb-2
                       [&:not(:placeholder-shown)]:pt-6
@@ -109,7 +109,7 @@ const UpdateFood = () => {
                         peer-focus:text-xs
                         peer-focus:-translate-y-1.5
                         peer-[:not(:placeholder-shown)]:text-xs
-                        peer-[:not(:placeholder-shown)]:-translate-y-1.5">Expire Date</label>
+                        peer-[:not(:placeholder-shown)]:-translate-y-1.5">Expire Day</label>
                                         </div>
                                         <div class="relative col-span-full md:col-span-1">
                                             <div class="relative">

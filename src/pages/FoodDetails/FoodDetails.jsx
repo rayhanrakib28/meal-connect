@@ -7,7 +7,9 @@ import Swal from 'sweetalert2';
 
 const FoodDetails = () => {
     const { user } = useAuth();
-    const { email,displayName } = user || {};
+    const requesterEmail = user?.email;
+    const requesterName = user?.displayName;
+    const requesterImage = user?.photoURL;
     const [data, setData] = useState([]);
     const axiosSecure = useAxiosSecure();
     useEffect(() => {
@@ -20,7 +22,7 @@ const FoodDetails = () => {
     const pathname = location.pathname;
     const id = pathname.slice(pathname.lastIndexOf('/') + 1);
     const food = data.find(item => item._id == id);
-    const { _id, DonorName, DonorEmail, Location, FoodImage, FoodName, FoodQuantity, ExpiredDate, Status, DonorImage, Description, Details } = food || {};
+    const { _id, DonorName, DonorEmail, Location, FoodImage, FoodName, FoodQuantity, ExpiredDay, Status, DonorImage, Description, Details } = food || {};
     const food_id = _id;
     const now = new Date();
     const date = now.toLocaleDateString('en-GB');
@@ -30,9 +32,9 @@ const FoodDetails = () => {
     const handleRequest = e => {
         e.preventDefault();
         const form = e.target;
-        const notes = form.notes.value;
-        const donate = form.donate.value;
-        const food = { food_id, DonorName, email, Location, notes, donate, ExpiredDate, Status, requestDate };
+        const Notes = form.notes.value;
+        const Donate = form.donate.value;
+        const food = { food_id, DonorName, DonorEmail, DonorImage, requesterEmail, requesterName, Location, Notes, Donate, FoodImage, FoodName, FoodQuantity, ExpiredDay, Status, requesterImage, Description, requestDate };
         fetch('https://meal-connect-server.vercel.app/api/v1/requested', {
             method: "POST",
             headers: {
@@ -98,7 +100,7 @@ const FoodDetails = () => {
                             </p>
                             <span className="flex items-center gap-6 text-base font-medium text-start"><img className="w-6" src="https://i.ibb.co/GMLKtQg/product.png" /> Food Quantity: {FoodQuantity}</span>
                             <span className="flex items-center gap-6 py-2 text-base font-medium text-start"><img className="w-6" src="https://i.ibb.co/t4dvNX0/location.png" /> Pickup Location: {Location}</span>
-                            <span className="flex items-center gap-6 text-base font-medium text-start"><img className="w-6" src="https://i.ibb.co/0ZFprsk/deadline.png" /> Expired Date/Time: {ExpiredDate}</span>
+                            <span className="flex items-center gap-6 text-base font-medium text-start"><img className="w-6" src="https://i.ibb.co/0ZFprsk/deadline.png" /> Expire Day: {ExpiredDay}</span>
                             <div className='mt-8 flex gap-6 items-center'>
                                 <img className='w-16 h-16 object-cover rounded-md' src={DonorImage} alt="" />
                                 <div>
@@ -106,7 +108,7 @@ const FoodDetails = () => {
                                     <p>{DonorEmail}</p>
                                 </div>
                             </div>
-                            {Status && <button className="btn text-center w-40 h-16 mt-6 bg-[#FF6C22] text-white hover:text-[#2e355a] " onClick={() => document.getElementById('request_modal').showModal()}>open modal</button>}
+                            {Status ? (<button className="btn text-center w-40 h-16 mt-6 bg-[#FF6C22] text-white hover:text-[#2e355a] " onClick={() => document.getElementById('request_modal').showModal()}>Request</button>):('') }
                             
                             <dialog id="request_modal" className="modal modal-bottom sm:modal-middle">
                                 <div className="modal-box">
@@ -124,16 +126,15 @@ const FoodDetails = () => {
                                             <p className=" text-sm">Email: {DonorEmail}</p>
                                             <p className=" text-sm">Name: {DonorName}</p>
                                             <p className=" text-sm font-semibold">Your info</p>
-                                            <p className=" text-sm">Name: {displayName}</p>
-                                            <p className=" text-sm">Email: {email}</p>
+                                            <p className=" text-sm">Name: {requesterName}</p>
+                                            <p className=" text-sm">Email: {requesterEmail}</p>
                                             <p className=" text-sm font-semibold">Others info</p>
                                             <p className=" text-sm">Request Date: {requestDate}</p>
                                             <p className=" text-sm">Pickup Location: {Location}</p>
-                                            <p className=" text-sm">Expired Date: {ExpiredDate}</p>
+                                            <p className=" text-sm">Expired Day: {ExpiredDay}</p>
                                             <input name='notes' className='border my-2 p-2 rounded outline-none mr-2' type="text" placeholder='Additional Notes'/>
                                             <input name='donate' className='border my-2 p-2 rounded outline-none' type="number" placeholder='Donate Money'/>
                                             <input className='btn bg-[#FF6C22] text-white hover:text-[#2e355a]' type="submit" value="Request" />
-                                            
                                         </form>
                                     </div>
                                 </div>

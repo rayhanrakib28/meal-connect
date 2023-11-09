@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Sheet, Table, Avatar, Stack, Button, IconButton } from '@mui/joy';
+import { Sheet, Table, Stack, Button, IconButton } from '@mui/joy';
 import {
     createColumnHelper,
     flexRender,
@@ -51,9 +51,9 @@ const columns = [
         id: 'FoodName',
         header: 'Food Name',
     }),
-    columnHelper.accessor('ExpiredDate', {
-        id: 'ExpiredDate',
-        header: 'Expired Date',
+    columnHelper.accessor('ExpiredDay', {
+        id: 'ExpiredDay',
+        header: 'Expire Day',
     }),
     columnHelper.accessor('FoodQuantity', {
         id: 'FoodQuantity',
@@ -102,6 +102,7 @@ const ManageFoodsTable = ({ manageFoods }) => {
     // console.log(data);
     return (
         <>
+            <h1 className='text-center text-2xl md:text-4xl font-bold mb-10'>Manage Foods</h1>
             <Button component={Link} to="/addfood" sx={{ mb: 2 }}>
                 Add Food
             </Button>

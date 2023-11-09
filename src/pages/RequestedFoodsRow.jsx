@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const RequestedFoodsRow = ({ requested }) => {
-    const { food_id, _id, DonorName, email, Location, notes, donate, ExpiredDate, Status, requestDate } = requested || {};
+    const { food_id, _id, DonorName, email, Location, notes, donate, ExpiredDay, Status, requestDate } = requested || {};
 
     const handleDelete = id => {
 
@@ -36,20 +35,26 @@ const RequestedFoodsRow = ({ requested }) => {
     }
     return (
         <tr class="bg-white border-b  hover:bg-gray-50 ">
-            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                <Link to={`http://localhost:5173/food_details/${food_id}`}><a>{DonorName}</a></Link>
+            <th scope="row" class="px-3 py-2 font-medium text-gray-900 whitespace-nowrap">
+                <p>{DonorName}</p>
             </th>
-            <td class="px-6 py-4">
-                {Status ? 'Available':'Confirmed'}
+            <td class="px-3 py-3">
+                {Status ? 'Available' : 'Confirmed'}
             </td>
-            <td class="px-6 py-4">
-                {ExpiredDate}
+            <td class="px-3 py-3">
+                {ExpiredDay}
             </td>
-            <td class="px-6 py-4">
+            <td class="px-3 py-3">
+                {Location}
+            </td>
+            <td class="px-3 py-3">
+                {requestDate}
+            </td>
+            <td class="px-3 py-3">
                 {donate}
             </td>
-            <td class="px-6 py-4">
-                {Status && <button onClick={() => { handleDelete(_id) }} className="btn">X</button>}
+            <td class="px-3 py-3">
+                {Status ? (<button onClick={() => { handleDelete(_id) }} className="btn">Cancel</button>):('Confirmed') }
             </td>
         </tr>
     );

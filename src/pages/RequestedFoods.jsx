@@ -9,7 +9,7 @@ const RequestedFoods = () => {
     const { user } = useAuth();
     const [requestedFoods, setRequestedFoods] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const url = `https://meal-connect-server.vercel.app/api/v1/requested?email=${user?.email}`;
+    const url = `https://meal-connect-server.vercel.app/api/v1/user/requested?email=${user?.email}`;
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -28,22 +28,29 @@ const RequestedFoods = () => {
                         :
                         (
                             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                                <h1 className='text-center text-2xl md:text-4xl font-bold mb-10'>Requested Foods</h1>
                                 <table class="w-full text-sm text-left text-gray-500">
                                     <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                                         <tr>
-                                            <th scope="col" class="px-6 py-3">
+                                            <th scope="col" class="px-3 py-3">
                                                 Donor name
                                             </th>
-                                            <th scope="col" class="px-6 py-3">
+                                            <th scope="col" class="px-3 py-3">
                                                 Status
                                             </th>
-                                            <th scope="col" class="px-6 py-3">
-                                                Expire Date
+                                            <th scope="col" class="px-3 py-3">
+                                                Expire Day
                                             </th>
-                                            <th scope="col" class="px-6 py-3">
+                                            <th scope="col" class="px-3 py-3">
+                                                Pickup Location
+                                            </th>
+                                            <th scope="col" class="px-3 py-3">
+                                                Request Date
+                                            </th>
+                                            <th scope="col" class="px-3 py-3">
                                                 Donate
                                             </th>
-                                            <th scope="col" class="px-6 py-3">
+                                            <th scope="col" class="px-3 py-3">
                                                 Cancel
                                             </th>
                                         </tr>

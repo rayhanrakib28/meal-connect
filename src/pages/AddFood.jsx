@@ -15,11 +15,11 @@ const AddFood = () => {
         const FoodImage = form.FoodImage.value;
         const Location = form.Location.value;
         const FoodQuantity = parseInt(form.FoodQuantity.value);
-        const ExpiredDate = form.ExpiredDate.value;
+        const ExpiredDay = form.ExpiredDay.value;
         const Status = 1;
         const Description = form.Description.value;
         const Details = form.Details.value;
-        const Food = { FoodName, FoodImage, Location, FoodQuantity, ExpiredDate, Status, Description, Details, DonorEmail, DonorName, DonorImage };
+        const Food = { FoodName, FoodImage, Location, FoodQuantity, ExpiredDay, Status, Description, Details, DonorEmail, DonorName, DonorImage };
         fetch('https://meal-connect-server.vercel.app/api/v1/all/services', {
             method: "POST",
             headers: {
@@ -83,7 +83,7 @@ const AddFood = () => {
                         peer-[:not(:placeholder-shown)]:-translate-y-1.5">Pickup Location</label>
                                         </div>
                                         <div class="relative">
-                                            <input required type="date" name='ExpiredDate' class="peer p-4 block w-full border outline-none rounded-lg text-sm placeholder:text-transparent 
+                                            <input required type="number" name='ExpiredDay' class="peer p-4 block w-full border outline-none rounded-lg text-sm placeholder:text-transparent 
                       focus:pt-6
                       focus:pb-2
                       [&:not(:placeholder-shown)]:pt-6
@@ -94,7 +94,7 @@ const AddFood = () => {
                         peer-focus:text-xs
                         peer-focus:-translate-y-1.5
                         peer-[:not(:placeholder-shown)]:text-xs
-                        peer-[:not(:placeholder-shown)]:-translate-y-1.5">Expire Date</label>
+                        peer-[:not(:placeholder-shown)]:-translate-y-1.5">Expire Day</label>
                                         </div>
                                         <div class="relative col-span-full md:col-span-1">
                                             <div class="relative">

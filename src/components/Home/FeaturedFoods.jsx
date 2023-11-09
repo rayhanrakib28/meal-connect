@@ -9,7 +9,7 @@ const FeaturedFoods = () => {
     const [featured, setFeatured] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const axiosSecure = useAxiosSecure();
-    const url = `/api/v1/featured/services?sort=desc`;
+    const url = `/api/v1/featured/services?sort=desc&status=1`;
     useEffect(() => {
         axiosSecure.get(url)
             .then(res => {

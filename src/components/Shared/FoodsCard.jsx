@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 
 const FoodsCard = ({ food }) => {
-    const { _id, DonorName, DonorImage, FoodImage, FoodName, FoodQuantity, ExpiredDate, Location,badge } = food || {};
+    const { _id, DonorName, DonorImage, FoodImage, FoodName, FoodQuantity, ExpiredDay, Location,badge } = food || {};
     
 
     return (
@@ -24,7 +24,7 @@ const FoodsCard = ({ food }) => {
                 </div>
                 <span className="flex items-center gap-6 text-sm font-medium text-start"><img className="w-6" src="https://i.ibb.co/GMLKtQg/product.png" /> Food Quantity: {FoodQuantity}</span>
                 <span className="flex items-center gap-6 py-2 text-sm font-medium text-start"><img className="w-6" src="https://i.ibb.co/t4dvNX0/location.png" /> Pickup Location: {Location}</span>
-                <span className="flex items-center gap-6 text-sm font-medium text-start"><img className="w-6" src="https://i.ibb.co/0ZFprsk/deadline.png" /> Expired Date/Time: {ExpiredDate}</span>
+                <span className="flex items-center gap-6 text-sm font-medium text-start"><img className="w-6" src="https://i.ibb.co/0ZFprsk/deadline.png" /> Expired Day: {ExpiredDay}</span>
             </div>
             <Link to={`/food_details/${_id}`}>
                 <button className="bg-[#FF6C22] hover:bg-[#FF6C11] font-bold text-white py-4 rounded-b-md w-full mt-4">View Details</button>
