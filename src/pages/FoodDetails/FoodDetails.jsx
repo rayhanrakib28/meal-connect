@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import useAuth from '../../hooks/useAuth';
 import {  useLocation } from 'react-router-dom';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
-import Swal from 'sweetalert2';
+import toast from 'react-hot-toast';
 
 const FoodDetails = () => {
     const { user } = useAuth();
@@ -45,13 +45,7 @@ const FoodDetails = () => {
             .then((res) => res.json())
             .then((data) => {
                 if (data.insertedId) {
-                    Swal.fire({
-                        position: 'center',
-                        icon: 'success',
-                        title: 'Your Food has been added',
-                        showConfirmButton: false,
-                        timer: 1000
-                    })
+                    toast.success('Successfully Requested!')
                     window.location.reload();
                 } else {
                     console.log('Already Requested');
@@ -112,7 +106,7 @@ const FoodDetails = () => {
                             </div>
                             {Status ? (<button className="btn text-center w-40 h-16 mt-6 bg-[#FF6C22] text-white hover:text-[#2e355a] " onClick={() => document.getElementById('request_modal').showModal()}>Request</button>):('') }
                             
-                            <dialog id="request_modal" className="modal modal-bottom sm:modal-middle -z-10">
+                            <dialog id="request_modal" className="modal modal-bottom sm:modal-middle">
                                 <div className="modal-box">
                                     <div className='flex gap-5 mb-4'>
                                         <img className='w-60 h-60 rounded-lg object-cover' src={FoodImage} alt="" />
