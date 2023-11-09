@@ -48,8 +48,7 @@ const Join = () => {
                     })
                     window.location.reload();
                 } else {
-                    Swal.fire("Already Exist!");
-
+                    console.log('Already Joined');
                 }
             })
     }

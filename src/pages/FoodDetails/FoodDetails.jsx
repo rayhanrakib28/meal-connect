@@ -53,6 +53,8 @@ const FoodDetails = () => {
                         timer: 1000
                     })
                     window.location.reload();
+                } else {
+                    console.log('Already Requested');
                 }
             })
 
