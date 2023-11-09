@@ -65,8 +65,10 @@ const ManageFoods = () => {
                                 </div>
                             </div>
                             
-
-                            <ManageFoodsTable manageFoods={manageFoods}></ManageFoodsTable>
+                            <div className='w-full text-sm text-left text-gray-500'>
+                                <ManageFoodsTable manageFoods={manageFoods}></ManageFoodsTable>
+                            </div>
+                            
                         </div> )
                 }
             </div>
