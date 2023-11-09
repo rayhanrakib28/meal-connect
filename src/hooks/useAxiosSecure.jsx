@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const axiosSecure = axios.create({
+export const axiosSecure = axios.create({
     baseURL: 'https://meal-connect-server.vercel.app',
-    // withCredentials: true
+    withCredentials: true
 })
 const useAxiosSecure = () => {
 

@@ -13,7 +13,7 @@ const AvailableFoods = () => {
     const [isLoading, setIsLoading] = useState(true);
     const axiosSecure = useAxiosSecure();
 
-    const url = `/api/v1/expire/services?status=1&sort=${asc ? 'asc' : 'desc'}&search=${search}`;
+    const url = `/api/v1/filter/services?status=1&search=${search}&sort=${asc ? 'asc' : 'desc'}&quantity=${less ? 'asc' : 'desc'}`;
     useEffect(() => {
         setAllFoods([])
         axiosSecure.get(url)
@@ -21,17 +21,7 @@ const AvailableFoods = () => {
                 setAllFoods(res.data)
                 setIsLoading(false)
             })
-    }, [axiosSecure, url, asc, search])
-
-    const url2 = `/api/v1/quantity/services?status=1&quantity=${less? 'asc':'desc'}&search=${search}`;
-    useEffect(() => {
-        setAllFoods([])
-        axiosSecure.get(url2)
-            .then(res => {
-                setAllFoods(res.data)
-                setIsLoading(false)
-            })
-    }, [axiosSecure, url, less, search])
+    }, [url, axiosSecure, asc, less, search])
 
     const handleSearch = e => {
         e.preventDefault();
