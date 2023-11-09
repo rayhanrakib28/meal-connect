@@ -105,7 +105,7 @@ const FoodDetails = () => {
                                 </div>
                             </div>
                             {Status ? (<button className="btn text-center w-40 h-16 mt-6 bg-[#FF6C22] text-white hover:text-[#2e355a] " onClick={() => document.getElementById('request_modal').showModal()}>Request</button>):('') }
-                            <input type="checkbox" id="my_modal_7" className="modal-toggle" />
+                            <input type="checkbox" id="request_modal" className="modal-toggle" />
                             <dialog id="request_modal" className="modal modal-bottom sm:modal-middle">
                                 <div className="modal-box">
                                     <div className='flex gap-5 mb-4'>
@@ -134,7 +134,7 @@ const FoodDetails = () => {
                                         </form>
                                     </div>
                                 </div>
-                                <input type="checkbox" id="my_modal_7" className="modal-toggle" />
+                                <input type="checkbox" id="request_modal" className="modal-toggle" />
                             </dialog>
                             
                         </div>
