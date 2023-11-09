@@ -27,7 +27,7 @@ const ManageFoods = () => {
                     isLoading ?
                         (<div className='w-full flex justify-center items-center justify-items-center'><img className='w-80' src="https://i.ibb.co/80Bnt31/loading.gif" alt="" /></div>)
                         :
-                        (<div className='container mx-auto p-5 md:p-0'>
+                        (<div className='container mx-auto p-5 md:p-0 relative overflow-x-auto shadow-md sm:rounded-lg'>
 
                             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-10 pb-16 text-center">
                                 <p class="mx-auto -mt-4 max-w-2xl text-lg tracking-tight text-slate-700 sm:mt-6">MealConnect</p>

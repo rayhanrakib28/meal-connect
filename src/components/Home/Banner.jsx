@@ -6,7 +6,7 @@ const Banner = () => {
     return (
         <div>
             <div class="relative min-h-screen">
-                <div className='absolute -z-10 top-80 lg:top-40 left-0 lg:left-4 blur hover:blur-0'><img src="https://i.ibb.co/LhjjZkY/04de2e31234507-564a1d23645bf.gif" alt="" /></div>
+                <div className='absolute -z-10 top-96 lg:top-40 left-0 lg:left-4 blur hover:blur-0'><img src="https://i.ibb.co/LhjjZkY/04de2e31234507-564a1d23645bf.gif" alt="" /></div>
                 <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-10">
                     <div class="flex justify-center">
                         <a class="inline-flex items-center gap-x-2 bg-slate-200 border border-gray-200 text-xs text-[#50577A] p-2 px-3 rounded-full transition hover:border-gray-300" href="/available-foods">
@@ -33,7 +33,7 @@ const Banner = () => {
                         <span class="text-lg text-gray-600 dark:text-gray-400"> <Fade delay={1e3}> "Be part of a caring community that ensures surplus food finds its way to those in need."</Fade> </span>
                     </div>
 
-                    <div class="mt-8 flex gap-3 w-full justify-center">
+                    <div class="mt-8 flex flex-col md:flex-row items-center gap-3 w-full justify-center">
                         <NavLink to="/manage-foods">
                             <a class="inline-flex justify-center items-center gap-x-3 text-center bg-gradient-to-tl from-[#FF8080] to-[#FF6C22] hover:from-[#FF6C22] hover:to-[#FF8080] border border-transparent text-white text-lg font-medium rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#FF8080] focus:ring-offset-2 focus:ring-offset-white py-3 px-6">
                                 Get Started

@@ -123,7 +123,7 @@ const Navbar = () => {
                             </ul>)
                     }
                 </div>
-                <div className="navbar-end">
+                <div className="navbar-end pr-4">
 
                     {
                         user ? (<div className="dropdown dropdown-end">
