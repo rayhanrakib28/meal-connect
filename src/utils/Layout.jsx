@@ -11,7 +11,7 @@ const Layout = () => {
             <Navbar></Navbar>
             <Outlet></Outlet>
             <Footer></Footer>
-            <Toaster></Toaster>
+            <Toaster position="top-right"></Toaster>
         </div>
     );
 };
