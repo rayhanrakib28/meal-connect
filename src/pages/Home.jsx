@@ -23,10 +23,10 @@ const Home = () => {
             <div data-aos="fade-up" data-aos-duration="1000" className='bg-[#FF6C22] min-h-screen my-5'>
                 <About></About>
             </div>
-            <div data-aos="fade-up" data-aos-duration="1000" className='container mx-auto'>
+            <div data-aos="fade-up" data-aos-duration="2000" className='container mx-auto'>
                 <Impact></Impact>
             </div>
-            <div data-aos="fade-up" data-aos-duration="2000" className='container mx-auto'>
+            <div data-aos="fade-up" data-aos-duration="3000" className='container mx-auto'>
                 <Partners></Partners>
             </div>
 
