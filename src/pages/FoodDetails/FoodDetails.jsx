@@ -104,7 +104,7 @@ const FoodDetails = () => {
                                     <p>{DonorEmail}</p>
                                 </div>
                             </div>
-                            {Status ? (<button className="btn text-center w-40 h-16 mt-6 bg-[#FF6C22] text-white hover:text-[#2e355a] " onClick={() => document.getElementById('request_modal').showModal()}>Request</button>):('') }
+                            {Status ? (<label htmlFor="request_modal" className="btn text-center w-40 h-16 mt-6 bg-[#FF6C22] text-white hover:text-[#2e355a]">Request</label>):('') }
                             <input type="checkbox" id="request_modal" className="modal-toggle" />
                             <dialog id="request_modal" className="modal modal-bottom sm:modal-middle">
                                 <div className="modal-box">
