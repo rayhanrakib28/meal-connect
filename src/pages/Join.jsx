@@ -27,18 +27,18 @@ const Join = () => {
 
     const handleJoin = e => {
         e.preventDefault();
-        const volunteer = { volunteerEmail, volunteerImage, volunteerName };
+        const userJoin = { volunteerEmail, volunteerImage, volunteerName };
         fetch('https://meal-connect-server.vercel.app/api/v1/members', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(volunteer)
+            body: JSON.stringify(userJoin)
         })
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
-                if (data.insertedId) {
+                if (data?.insertedId) {
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
@@ -47,6 +47,9 @@ const Join = () => {
                         timer: 1000
                     })
                     window.location.reload();
+                } else {
+                    Swal.fire("Already Exist!");
+
                 }
             })
     }
