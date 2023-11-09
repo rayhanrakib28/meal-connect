@@ -20,7 +20,7 @@ const ManageFoods = () => {
         })
     }, [url, axiosSecure, email])
     return (
-        <div>
+        <div className='container mx-auto px-5'>
             <Helmet><title>MealConnect | Manage Foods</title></Helmet>
             <div className='min-h-screen'>
                 {
@@ -65,7 +65,7 @@ const ManageFoods = () => {
                                 </div>
                             </div>
                             
-                            <div className='w-full text-sm text-left text-gray-500'>
+                            <div className='w-full text-sm text-left text-gray-500 '>
                                 <ManageFoodsTable manageFoods={manageFoods}></ManageFoodsTable>
                             </div>
                             
