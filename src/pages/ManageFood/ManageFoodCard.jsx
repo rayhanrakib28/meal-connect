@@ -50,7 +50,7 @@ const ManageFoodCard = ({ details }) => {
     return (
         <tr class="bg-white border hover:bg-gray-50 ">
             <th scope="row" class="px-3 py-2 font-medium text-gray-900 whitespace-nowrap">
-                <Link to={`https://meal-connect-server.vercel.app/food_details/${food_id}`}><img className="w10 h-10 object-cover rounded-lg" src={requesterImage} alt="" /></Link>
+                <Link to={`https://meal-connect-server.vercel.app/food_details/${food_id}`}><img className="w10 h-10 object-cover rounded-full" src={requesterImage} alt="" /></Link>
             </th>
             <td class="px-3 py-2">
                 {Status ? ('Available') : ('Confirmed')}
