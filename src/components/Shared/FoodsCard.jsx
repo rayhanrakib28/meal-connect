@@ -11,7 +11,7 @@ const FoodsCard = ({ food }) => {
     return (
         <Link to={`/food_details/${_id}`}>
             <div className="w-80 lg:w-96 h-72 lg:h-80">
-                <div className='bg-white shadow-md rounded-lg flex flex-col justify-between'>
+                <div className='bg-white shadow rounded-lg flex flex-col justify-between'>
                 <div className="relative">
                     <img className='rounded-t-lg w-full h-60 object-cover transition duration-500 group-hover:scale-105' src={FoodImage} alt="" />
                     {
