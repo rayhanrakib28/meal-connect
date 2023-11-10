@@ -87,7 +87,7 @@ const RequestedFoods = () => {
                                         {
                                             requestedFoods ? (<tbody>{
                                                 requestedFoods.map(requested => <RequestedFoodsRow key={requested._id} requested={requested}></RequestedFoodsRow>)
-                                        }</tbody>) : (<h2 className='text-center font-bold text-xl my-5'>No Requests Yet</h2> )
+                                        }</tbody>) : (<tbody><h2 className='text-center font-bold text-xl my-5'>No Requests Yet</h2></tbody>)
                                         }
                                 </table>
                             </div>
