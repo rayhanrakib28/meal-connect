@@ -109,7 +109,7 @@ const FoodDetails = () => {
                             <dialog id="request_modal" className="modal modal-bottom sm:modal-middle">
                                 <div className="modal-box">
                                     <div className='flex flex-col md:flex-row gap-5 mb-4'>
-                                        <img className='w-60 h-60 rounded-lg object-cover' src={FoodImage} alt="" />
+                                        <img className='w-full h-48 md:w-60 md:h-60 rounded-lg object-cover' src={FoodImage} alt="" />
                                     <div>
                                         <h3 className="font-bold text-lg mt-3">{FoodName}</h3>
                                         <p className=" text-sm">Food Id: {_id}</p>
