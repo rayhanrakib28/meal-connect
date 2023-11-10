@@ -24,7 +24,7 @@ const About = () => {
                             <p className='text-slate-100 text-start text-sm px-4 mt-2'>We believe in the power of community. We organize events that bring people together with a mission.</p>
                         </div>
                     </div>
-                    <div className='grid grid-cols-1 md:grid-cols-2 gap-5 my-10'>
+                    <div className='grid grid-cols-1 md:grid-cols-2 gap-5 my-5 md:my-10'>
                         <div data-aos="zoom-in" data-aos-duration="3000" className='h-60 md:h-[360px] mx-2 w-72 md:w-56 bg-[#ffffff40] hover:bg-[#ffffff20] hover:shadow-lg shadow rounded-lg'>
                             <img className='w-24 md:w-48 pt-5 px-5' src="https://i.ibb.co/wCnyyZ6/long-distance.png" alt="" />
                             <h3 className='text-slate-100 text-xl text-start md:text-2xl px-5 mt-6'>Distribution</h3>
