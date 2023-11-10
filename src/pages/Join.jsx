@@ -75,7 +75,7 @@ const Join = () => {
                 {
                     isLoading ? (<div className='w-full flex justify-center items-center justify-items-center'><img className='w-80' src="https://i.ibb.co/80Bnt31/loading.gif" alt="" /></div>)
                         :
-                        (<div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2  justify-items-center my-10'>
+                        (<div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 px-3 justify-items-center my-10'>
                             {
                                 team?.map(user => <JoinCard key={user._id} user={user}></JoinCard> )
                             }
