@@ -46,7 +46,7 @@ const FoodDetails = () => {
             .then((data) => {
                 if (data.insertedId) {
                     toast.success('Successfully Requested!')
-                    window.location.href = '/requested-foods';
+                    window.location.href = 'https://meal-connect.vercel.app/requested-foods';
                 } else {
                     console.log('Already Requested');
                 }
