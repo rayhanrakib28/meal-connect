@@ -2,7 +2,7 @@ import React from 'react';
 import Swal from 'sweetalert2';
 
 const RequestedFoodsRow = ({ requested }) => {
-    const { food_id, _id, DonorName, email, Location, notes, donate, ExpiredDay, Status, requestDate } = requested || {};
+    const { food_id, _id, DonorName, email, Location, Notes, Donate, ExpiredDay, Status, requestDate } = requested || {};
 
     const handleDelete = id => {
 
@@ -51,7 +51,7 @@ const RequestedFoodsRow = ({ requested }) => {
                 {requestDate}
             </td>
             <td class="px-3 py-3">
-              ${donate}
+                ${Donate}
             </td>
             <td class="px-3 py-3">
                 {Status ? (<button onClick={() => { handleDelete(_id) }} className="btn">Cancel</button>):('Confirmed') }
