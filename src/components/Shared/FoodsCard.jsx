@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 
 const FoodsCard = ({ food }) => {
-    const { _id, DonorName, DonorImage, FoodImage, FoodName, FoodQuantity, ExpiredDay, Location, badge } = food || {};
+    const { _id, DonorName, DonorImage, FoodImage, FoodName, FoodQuantity, ExpiredDay, Location } = food || {};
 
 
     return (
@@ -14,9 +14,6 @@ const FoodsCard = ({ food }) => {
                 <div className='bg-white shadow rounded-lg flex flex-col justify-between'>
                 <div className="relative">
                     <img className='rounded-t-lg w-full h-60 object-cover transition duration-500 group-hover:scale-105' src={FoodImage} alt="" />
-                    {
-                        badge ? (<span className="bg-green-600 text-white font-semibold text-sm absolute -bottom-2.5 left-4 px-2 rounded-md">New</span>) : ('')
-                    }
                 </div>
                 <div className="px-3 mt-4">
                     <h2 className="text-xl text-center font-semibold pt-2">{FoodName}</h2>
