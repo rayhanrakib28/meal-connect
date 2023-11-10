@@ -46,7 +46,7 @@ const FoodDetails = () => {
             .then((data) => {
                 if (data.insertedId) {
                     toast.success('Successfully Requested!')
-                    window.location.reload();
+                    window.location.href = '/requested-foods';
                 } else {
                     console.log('Already Requested');
                 }
