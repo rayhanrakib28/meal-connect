@@ -12,7 +12,7 @@ const About = () => {
                     <button className='btn hover:bg-[#FF6C22] hover:text-white mt-5'><Link to="/login">Join Now </Link></button>
                 </div>
                 <div className='max-w-lg px-2 md:px-0'>
-                    <div className='grid grid-cols-2 gap-5 my-10'>
+                    <div className='grid grid-cols-1 md:grid-cols-2 gap-5 my-10'>
                         <div data-aos="zoom-in" data-aos-duration="3000" className='h-60 md:h-72 lg:h-[360px] w-48 md:w-56 bg-[#ffffff40] hover:bg-[#ffffff20] hover:shadow-lg shadow rounded-lg'>
                             <img className='w-24 md:w-48 pt-5 px-5' src="https://i.ibb.co/f8F7TfF/clean-energy.png" alt="" />
                             <h3 className='text-slate-100 text-xl text-start md:text-2xl px-5 mt-6'>Awareness</h3>
@@ -24,7 +24,7 @@ const About = () => {
                             <p className='text-slate-100 text-start text-sm px-4 mt-2'>We believe in the power of community. We organize events that bring people together with a mission.</p>
                         </div>
                     </div>
-                    <div className='grid grid-cols-2 gap-5 my-10'>
+                    <div className='grid grid-cols-1 md:grid-cols-2 gap-5 my-10'>
                         <div data-aos="zoom-in" data-aos-duration="3000" className='h-60 md:h-72 lg:h-[360px] w-48 md:w-56 bg-[#ffffff40] hover:bg-[#ffffff20] hover:shadow-lg shadow rounded-lg'>
                             <img className='w-24 md:w-48 pt-5 px-5' src="https://i.ibb.co/wCnyyZ6/long-distance.png" alt="" />
                             <h3 className='text-slate-100 text-xl text-start md:text-2xl px-5 mt-6'>Distribution</h3>
