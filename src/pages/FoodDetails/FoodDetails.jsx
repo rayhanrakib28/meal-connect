@@ -129,7 +129,7 @@ const FoodDetails = () => {
                                             <p className=" text-sm">Pickup Location: {Location}</p>
                                             <p className=" text-sm">Expired Day: {ExpiredDay}</p>
                                             <input name='notes' className='border my-2 p-2 rounded outline-none mr-2' type="text" placeholder='Additional Notes'/>
-                                            <input name='donate' className='border my-2 p-2 rounded outline-none' type="number" placeholder='Donate Money'/>
+                                            <input name='donate' className='border my-2 p-2 rounded outline-none mr-2' type="number" placeholder='Donate Money'/>
                                             <input className='btn bg-[#FF6C22] text-white hover:text-[#2e355a]' type="submit" value="Request" />
                                         </form>
                                     </div>
