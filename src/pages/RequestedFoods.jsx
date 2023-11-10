@@ -91,7 +91,7 @@ const RequestedFoods = () => {
                                     </tbody>
                                 </table>
                                 {
-                                    requestedFoods ? (<div></div>): (<div><h2 className = 'text-center font-bold text-xl my-5'>No Requests Yet</h2></div>)
+                                    requestedFoods.length === 0 ? (<div><h2 className='text-center font-bold text-xl my-5'>No Requests Yet</h2></div>): (<div></div>)
                                 }
                             </div>
                         )
