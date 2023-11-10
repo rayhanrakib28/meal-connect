@@ -6,7 +6,7 @@ const Banner = () => {
     return (
         <div>
             <div class="relative min-h-screen">
-                <div className='absolute -z-10 top-96 lg:top-40 left-0 lg:left-4 blur hover:blur-0'><img src="https://i.ibb.co/LhjjZkY/04de2e31234507-564a1d23645bf.gif" alt="" /></div>
+                <div className='absolute -z-10 hidden md:block top-96 lg:top-40 left-0 lg:left-4 blur hover:blur-0'><img src="https://i.ibb.co/LhjjZkY/04de2e31234507-564a1d23645bf.gif" alt="" /></div>
                 <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-10">
                     <div class="flex justify-center">
                         <a class="inline-flex items-center gap-x-2 bg-slate-200 border border-gray-200 text-xs text-[#50577A] p-2 px-3 rounded-full transition hover:border-gray-300" href="/available-foods">
