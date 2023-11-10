@@ -56,13 +56,13 @@ const ManageFoodCard = ({ details }) => {
                 {Status ? ('Available') : ('Confirmed')}
             </td>
             <td class="px-3 py-2">
-                {ExpiredDay}
+                {ExpiredDay} Days
             </td>
             <td class="px-3 py-2 ">
                 {requesterEmail}
             </td>
             <td class="px-3 py-2 ">
-                {Donate}
+                ${Donate}
             </td>
             <td class="px-3 py-2 ">
                 {requestDate}
