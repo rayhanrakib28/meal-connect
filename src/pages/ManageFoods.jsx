@@ -67,6 +67,9 @@ const ManageFoods = () => {
                             
                             <div className='w-full text-sm text-left text-gray-500 '>
                                 <ManageFoodsTable manageFoods={manageFoods}></ManageFoodsTable>
+                                {
+                                    manageFoods.length === 0 ? (<div><h2 className='text-center text-xl my-5'>Start Your Journey of Generosity: Share Your First Food Contribution Today!</h2></div>) : (<div></div>)
+                                }
                             </div>
                             
                         </div> )
