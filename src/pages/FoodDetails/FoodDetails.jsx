@@ -33,7 +33,7 @@ const FoodDetails = () => {
         e.preventDefault();
         const form = e.target;
         const Notes = form.notes.value;
-        const Donate = form.donate.value;
+        const Donate = parseInt(form.donate.value);
         const food = { food_id, DonorName, DonorEmail, DonorImage, requesterEmail, requesterName, Location, Notes, Donate, FoodImage, FoodName, FoodQuantity, ExpiredDay, Status, requesterImage, Description, requestDate };
         fetch('https://meal-connect-server.vercel.app/api/v1/requested', {
             method: "POST",
