@@ -56,7 +56,7 @@ const ManageFoodCard = ({ details }) => {
                 {Status ? (<p className='text-green-600 font-bold'>Available</p>) : (<p className='text-[#FF6C22] font-bold'>Confirmed</p>)}
             </td>
             <td class="px-3 py-2">
-                {requesterName} Days
+                {requesterName}
             </td>
             <td class="px-3 py-2">
                 {ExpiredDay} Days
