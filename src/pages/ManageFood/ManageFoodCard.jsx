@@ -62,6 +62,9 @@ const ManageFoodCard = ({ details }) => {
                 {requesterEmail}
             </td>
             <td class="px-3 py-2 ">
+                {Donate}
+            </td>
+            <td class="px-3 py-2 ">
                 {requestDate}
             </td>
             <td class="px-3 py-2">
