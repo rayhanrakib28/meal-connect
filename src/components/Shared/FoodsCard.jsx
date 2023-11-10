@@ -10,7 +10,8 @@ const FoodsCard = ({ food }) => {
 
     return (
         <Link to={`/food_details/${_id}`}>
-            <div className='w-80 lg:w-96 h-72 lg:h-80 bg-white shadow-md rounded-lg flex flex-col justify-between'>
+            <div className="w-80 lg:w-96 h-72 lg:h-80">
+                <div className='bg-white shadow-md rounded-lg flex flex-col justify-between'>
                 <div className="relative">
                     <img className='rounded-t-lg w-full h-60 object-cover transition duration-500 group-hover:scale-105' src={FoodImage} alt="" />
                     {
@@ -31,6 +32,8 @@ const FoodsCard = ({ food }) => {
                     <button className="bg-[#FF6C22] hover:bg-[#FF6C11] font-bold text-white py-4 rounded-b-md w-full mt-4">View Details</button>
                 </Link>
             </div>
+            </div>
+            
         </Link>
 
     );
