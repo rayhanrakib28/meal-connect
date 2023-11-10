@@ -51,7 +51,9 @@ const RequestedFoodsRow = ({ requested }) => {
                 {requestDate}
             </td>
             <td class="px-3 py-3">
-                ${Donate}
+                {
+                    Donate ? (<p>${Donate}</p>) : (<p>$ 0</p>)
+                }
             </td>
             <td class="px-3 py-3">
                 {Status ? (<button onClick={() => { handleDelete(_id) }} className="btn">Cancel</button>):('Confirmed') }
