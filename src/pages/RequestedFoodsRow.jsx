@@ -39,12 +39,12 @@ const RequestedFoodsRow = ({ requested }) => {
                 <p>{DonorName}</p>
             </th>
             <td class="px-3 py-3">
-                {Status ? 'Available' : 'Confirmed'}
+                {Status ? (<p className='text-green-400'>Available</p>) : (<p className='text-[#FF6C22]'>Confirmed</p>)}
             </td>
             <td class="px-3 py-3">
                 {ExpiredDay} Days
             </td>
-            <td class="px-3 py-3">
+            <td class="px-3 py-3 text-sm">
                 {Location}
             </td>
             <td class="px-3 py-3">
