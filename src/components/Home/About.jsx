@@ -11,7 +11,7 @@ const About = () => {
                     <p className='text-slate-100'>Our mission is clear: to create a hunger-free and sustainable community where no edible food goes to waste. We believe that every meal shared is a step closer to this vision.</p>
                     <button className='btn hover:bg-[#FF6C22] hover:text-white mt-5'><Link to="/login">Join Now </Link></button>
                 </div>
-                <div className='px-2 md:px-0'>
+                <div className='max-w-lg px-2 md:px-0'>
                     <div className='grid grid-cols-2 gap-5 my-10'>
                         <div data-aos="zoom-in" data-aos-duration="3000" className='h-60 md:h-72 lg:h-96 w-48 md:w-56 bg-[#ffffff40] hover:bg-[#ffffff20] hover:shadow-lg shadow rounded-lg'>
                             <img className='w-24 md:w-48 pt-5 px-5' src="https://i.ibb.co/f8F7TfF/clean-energy.png" alt="" />
