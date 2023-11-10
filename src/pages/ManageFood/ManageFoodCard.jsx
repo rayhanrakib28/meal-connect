@@ -49,11 +49,14 @@ const ManageFoodCard = ({ details }) => {
     }
     return (
         <tr class="bg-white border hover:bg-gray-50 ">
-            <th scope="row" class="px-3 py-2 font-medium text-gray-900 whitespace-nowrap">
-                <Link to={`https://meal-connect-server.vercel.app/food_details/${food_id}`}><img className="w10 h-10 object-cover rounded-full" src={requesterImage} alt="" /></Link>
+            <th scope="row" class="px-3 py-2 font-medium text-gray-900">
+                <Link to={`https://meal-connect-server.vercel.app/food_details/${food_id}`}><img className="w-10 h-10 object-cover rounded-full" src={requesterImage} /></Link>
             </th>
             <td class="px-3 py-2">
-                {Status ? ('Available') : ('Confirmed')}
+                {Status ? (<p className='text-green-600'>Available</p>) : (<p className='text-[#FF6C22]'>Confirmed</p>)}
+            </td>
+            <td class="px-3 py-2">
+                {requesterName} Days
             </td>
             <td class="px-3 py-2">
                 {ExpiredDay} Days
@@ -62,7 +65,9 @@ const ManageFoodCard = ({ details }) => {
                 {requesterEmail}
             </td>
             <td class="px-3 py-2 ">
-                ${Donate}
+                {
+                    Donate ? (<p>${Donate}</p>) : (<p>$ 0</p>)
+                }
             </td>
             <td class="px-3 py-2 ">
                 {requestDate}

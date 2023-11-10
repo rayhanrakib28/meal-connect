@@ -34,7 +34,7 @@ const ManageFood = () => {
                             <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                                 <tr>
                                     <th scope="col" class="px-3 py-2">
-                                        Requester Image
+                                        Requester
                                     </th>
                                     <th scope="col" class="px-3 py-2">
                                         Status
@@ -42,11 +42,14 @@ const ManageFood = () => {
                                     <th scope="col" class="px-3 py-2">
                                         Requester Name
                                     </th>
+                                    <th scope="col" class="px-3 py-2">
+                                        Expire Day
+                                    </th>
                                     <th scope="col" class="px-3 py-2 ">
                                         Requester Email
                                     </th>
                                     <th scope="col" class="px-3 py-2 ">
-                                        Requester Donation
+                                        Donation
                                     </th>
                                     <th scope="col" class="px-3 py-2 ">
                                         Request Date
