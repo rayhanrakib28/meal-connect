@@ -53,7 +53,7 @@ const ManageFoodCard = ({ details }) => {
                 <Link to={`https://meal-connect-server.vercel.app/food_details/${food_id}`}><img className="w-10 h-10 object-cover rounded-full" src={requesterImage} /></Link>
             </th>
             <td class="px-3 py-2">
-                {Status ? (<p className='text-green-600'>Available</p>) : (<p className='text-[#FF6C22]'>Confirmed</p>)}
+                {Status ? (<p className='text-green-600 font-bold'>Available</p>) : (<p className='text-[#FF6C22] font-bold'>Confirmed</p>)}
             </td>
             <td class="px-3 py-2">
                 {requesterName} Days
@@ -73,7 +73,7 @@ const ManageFoodCard = ({ details }) => {
                 {requestDate}
             </td>
             <td class="px-3 py-2">
-                {Status ? (<button onClick={() => { handleConfirm(_id, food_id) }} className="btn">Confirm</button>) : ('Already Confirmed')}
+                {Status ? (<button onClick={() => { handleConfirm(_id, food_id) }} className="btn">Confirm</button>) : (<p className='text-[#FF6C22] font-bold'>Already Confirmed</p> )}
             </td>
         </tr>
     );
